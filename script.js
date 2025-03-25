@@ -21,15 +21,16 @@ document.addEventListener("DOMContentLoaded", () => {
         let selectedImages = [];
 
         function renderImages() {
-          imageContainer.innerHTML = "";
-          images.forEach((src, index) => {
-            let img = document.createElement("img");
-            img.src = src;
-            img.dataset.index = index;
-            img.addEventListener("click", () => handleImageClick(img));
-            imageContainer.appendChild(img);
-          });
-        }
+		  imageContainer.innerHTML = "";
+		  images.forEach((src, index) => {
+		    let img = document.createElement("img");
+		    img.src = src;
+		    img.dataset.index = index;
+		    img.classList.add(`img${index + 1}`); // Assigns class like img1, img2, etc.
+		    img.addEventListener("click", () => handleImageClick(img));
+		    imageContainer.appendChild(img);
+		  });
+		}
 
         function handleImageClick(img) {
           if (selectedImages.length < 2 && !selectedImages.includes(img)) {
